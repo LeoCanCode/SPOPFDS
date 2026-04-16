@@ -1,1 +1,131 @@
 
+LISTA DE COMANDOS — Learn Git Branching
+
+SEÇÃO 1 — INTRODUCTION SEQUENCE
+
+1.1 Introduction to Git Commit
+git commit
+git commit
+
+1.2 Branching in Git
+git branch bugFix
+git checkout bugFix
+
+ou:
+git checkout -b bugFix
+
+1.3 Merging in Git
+git checkout -b bugFix
+git commit
+git checkout main
+git commit
+git merge bugFix
+
+1.4 Rebase Introduction
+git checkout -b bugFix
+git commit
+git checkout main
+git commit
+git checkout bugFix
+git rebase main
+
+SEÇÃO 2 — RAMPING UP
+
+2.1 Detach HEAD
+git checkout c4
+
+2.2 Relative Refs (^)
+git checkout HEAD^
+
+2.3 Relative Refs (~)
+git checkout HEAD^
+git branch -f main c6
+git branch -f bugFix c0
+git branch -f bugWork c2
+
+2.4 Branch Spaghetti
+git checkout one
+git cherry-pick c4 c3 c2
+git checkout two
+git cherry-pick c5 c4 c3 c2
+git branch -f three c2
+
+SEÇÃO 3 — REMOTE (PUSH & PULL)
+
+3.1 Clone Intro
+git clone
+
+3.2 Remote Branches
+git commit
+git checkout o/main
+git commit
+
+3.3 Git Fetch
+git fetch
+
+3.4 Git Pull
+git pull
+
+3.5 Faking Teamwork
+git clone
+git fakeTeamwork main 2
+git commit
+git pull
+
+3.6 Git Push
+git commit
+git commit
+git push
+
+3.7 Diverged History
+git clone
+git fakeTeamwork main
+git commit
+git pull --rebase
+git push
+
+SEÇÃO 4 — ADVANCED REMOTES
+
+4.1 Push Main
+git fetch
+git rebase o/main side1
+git rebase side1 side2
+git rebase side2 side3
+git rebase side3 main
+git push
+
+4.2 Merging with remotes
+git checkout main
+git pull origin main
+git merge side1
+git merge side2
+git merge side3
+git push origin main
+
+4.3 Remote Tracking
+git checkout -b side o/main
+git commit
+git pull --rebase
+git push
+
+4.4 Push arguments
+git push origin main
+git push origin foo
+
+4.5 Push arguments (expandido)
+git push origin main^:foo
+git push origin foo:main
+
+4.6 Fetch arguments
+git fetch origin c3:foo
+git fetch origin c6:main
+git checkout foo
+git merge main
+
+4.7 Delete remote branch
+git push origin :foo
+git fetch origin :bar
+
+4.8 Pull arguments
+git pull origin c3:foo
+git pull origin c2:side
