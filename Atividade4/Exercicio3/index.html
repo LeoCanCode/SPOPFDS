@@ -3,9 +3,46 @@
   <head>
     <title>Fanpage de Gatito</title>
     <meta charset="utf-8">
+    <style>
+      .like-button {
+        border: 1px solid rgb(81, 145, 255);
+        background-color: rgb(112, 177, 255);
+        border-radius: 15px;
+        color: white;
+      }
+      .dislike-button {
+        border: 1px solid hsl(0, 69%, 39%);
+        background-color: hsl(0, 69%, 39%);;
+        border-radius: 15px;
+        color: white;
+      }
+      .gatinho-img {
+        width: 400px;
+        border: 5px solid rgb(81, 145, 255);
+        border-radius: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>#gatinhoinstagram</h1>
-    <img src="Imagens/gato">
+    <img src="Imagens/gato" class="gatinho-img">
+    <p>
+      <button>BOTÃO QUE NÃO FAZ NADA</button>
+      <button class="js-like-button like-button">like no gatinho</button>
+    </p>
+    <script>
+      
+      const like = document.querySelector('.js-like-button');
+      
+      like.addEventListener("click", () => {
+        if (like.innerHTML == 'like no gatinho') {
+          like.classList.add("dislike-button");
+          like.innerHTML = 'deslike no gatinho';
+        } else {
+          like.innerHTML = 'like no gatinho'
+          like.classList.remove("dislike-button");
+        }
+      });
+    </script>
   </body>
 </html>
